@@ -1,24 +1,23 @@
 import {signInWithPopup, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-
+import { auth ,provider } from "githubconfig.js";
 
 let btn = document.querySelector(".gh-btn")
 
 
 btn.addEventListener("click", ()=>{
-// const auth = getAuth();
-signInWithPopup(auth,GithubAuthProvider)
+signInWithPopup(auth, provider)
   .then((result) => {
-    
-
-    // The signed-in user info.
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
     const user = result.user;
     console.log(user);
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
     
-    console.log(errorMessage);
+  }).catch((error) => {
+    const errorCode = error.code;
+        const email = error.customData.email;
+    const credential = GithubAuthProvider.credentialFromError(error);
+    const errorMessage = error.message;
+console.log(errorMessage);
+
   });
 })

@@ -1,5 +1,5 @@
  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
- import { GithubAuthProvider } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+ import { auth  } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
   const firebaseConfig = {
     apiKey: "AIzaSyC6LVKF-E3-v3EfqlyvbExnSQ9jL9cRb10",
     authDomain: "facebook-authentication-741ad.firebaseapp.com",
@@ -12,4 +12,4 @@
 
   const app = initializeApp(firebaseConfig);
   export const auth = getAuth(app);
-  export const provider = new GithubAuthProvider();
+  export const GithubAuthProvider = new GithubAuthProvider();
