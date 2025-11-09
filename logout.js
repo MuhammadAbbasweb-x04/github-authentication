@@ -1,7 +1,7 @@
 import {signOut,
 onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-import { auth } from "auth.js";
+import { auth } from "/auth.js";
 let logout = document.querySelector(".logout-btn");
 onAuthStateChanged(auth, (user) => {
   if (user) {
